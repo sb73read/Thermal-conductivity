@@ -16,7 +16,7 @@ def calculate_k_eff(k_s, k_g, phi, diameters, fractions, thickness, pressure=101
 
     # ZBS Model parameters
     alpha = k_s / k_g_eff
-    B = 1.25 * ((1 - phi) / phi) ** (10 / 9)
+    B = 1.25 * ((1 - phi) / phi) ** (1/2)
 
     # Model components
     sqrt_1_phi = np.sqrt(1 - phi)
@@ -96,4 +96,5 @@ if st.button("Calculate Effective Conductivity", type="primary"):
         st.info(
             f"The coordination number for this packing ($\phi={phi}$) is estimated at **{13.28 * phi:.2f}** contacts per particle.")
     else:
+
         st.error("Please ensure fractions sum to 1.0 and at least one size bin exists.")
